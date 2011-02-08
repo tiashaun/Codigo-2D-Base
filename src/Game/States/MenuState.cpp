@@ -63,7 +63,7 @@ void MenuState::handleEvents(SDL_Event event)
 				switch(this->currOption)
 				{
 				case(OPT_START):
-					//START GAME
+					StatesManager.changeState("play state");
 					break;
 				case(OPT_CREDITS):
 					StatesManager.changeState("credits state");
@@ -84,7 +84,7 @@ void MenuState::init()
 {
 	this->mainMenu = AssetsManager.loadImage("menu.png");
 	this->cursor = AssetsManager.loadImage("seta.png");
-	this->fuleira = new CAnimatedSprite("borboleta.png", 104, 115, 4);
+	this->fuleira = new CAnimatedSprite(AssetsManager.loadImage("borboleta.png"), 104, 115, 4);
 	this->currOption = 0;
 	this->cursorPos.x = 480;
 }

@@ -1,18 +1,19 @@
 #include "CAnimatedSprite.h"
 
-CAnimatedSprite::CAnimatedSprite(const char* img, int frameX, int frameY, float fps)
+CAnimatedSprite::CAnimatedSprite(SDL_Surface* img, int frameX, int frameY, float fps)
+: CSprite::CSprite(img)
 {
 	this->fps = fps;
 	this->currFrame = 0;
-	this->image = AssetsManager.loadImage(img);
-	if( this->image != NULL )
+	this->img = img;
+	if( this->img != NULL )
 	{
-		this->framesCount = ((this->image->clip_rect.w / frameX) * (this->image->clip_rect.h / frameY));
+		this->framesCount = ((this->img->clip_rect.w / frameX) * (this->img->clip_rect.h / frameY));
 		this->clips = new SDL_Rect[framesCount];
 		for(int i = 0, x = 0, y = 0; i < this->framesCount; i++ )
 		{
 
-			if( x == this->image->clip_rect.w )
+			if( x == this->img->clip_rect.w )
 			{
 				x=0;
 				y++;
@@ -28,7 +29,7 @@ CAnimatedSprite::CAnimatedSprite(const char* img, int frameX, int frameY, float 
 
 void CAnimatedSprite::draw()
 {
-	SDL_BlitSurface( this->image, &this->clips[this->currFrame], Screen, NULL);
+	SDL_BlitSurface( this->img, &this->clips[this->currFrame], Screen, &this->pos);
 }
 
 void CAnimatedSprite::update( Uint32 dt )
@@ -51,5 +52,4 @@ void CAnimatedSprite::update( Uint32 dt )
 CAnimatedSprite::~CAnimatedSprite()
 {
 	delete[] this->clips;
-	SDL_FreeSurface(this->image);
 }
