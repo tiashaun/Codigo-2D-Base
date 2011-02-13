@@ -19,17 +19,26 @@ void CGame::run()
 	instance->running = 1;
 	Uint32 dt = 0;
 	Uint32 startTime = 0;
+	int nextFrame = 1000/60;
 	while(instance->running)
 	{
-		startTime = SDL_GetTicks();
-		while(SDL_PollEvent(&e))
+		nextFrame-=dt;
+		if(nextFrame <= 0)
 		{
-			StatesManager.handleEvents(e);
+			startTime = SDL_GetTicks();
+			while(SDL_PollEvent(&e))
+			{
+				StatesManager.handleEvents(e);
+			}
+			StatesManager.update(dt);
+			StatesManager.draw();
+			nextFrame = 1000/60;
 		}
-		StatesManager.update(dt);
-		StatesManager.draw();
+		else
+		{
+			SDL_Delay(1);
+		}
 		dt = SDL_GetTicks() - startTime;
-
 	}
 	SDL_Quit();
 }

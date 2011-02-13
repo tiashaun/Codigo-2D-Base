@@ -3,8 +3,10 @@
 CSprite::CSprite(SDL_Surface* img, int posX, int posY)
 {
 	this->img = img;
-	this->pos.x = posX;
-	this->pos.y = posY;
+	this->posX = posX;
+	this->posY = posY;
+	this->width = this->img->clip_rect.w;
+	this->height = this->img->clip_rect.h;
 }
 
 CSprite::~CSprite()

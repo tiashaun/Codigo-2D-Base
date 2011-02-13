@@ -1,5 +1,4 @@
 #include "CAssetsManager.h"
-#include <iostream>
 using namespace std;
 
 CAssetsManager* CAssetsManager::instance;

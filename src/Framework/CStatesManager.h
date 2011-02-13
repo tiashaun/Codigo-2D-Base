@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <SDL/SDL.h>
+using namespace std;
 class CGameState;
 
 class CStatesManager {
@@ -11,7 +12,7 @@ private:
 	CStatesManager();
 	static CStatesManager* instance;
 	CGameState* currState;
-	std::vector<CGameState*> statesList;
+	vector<CGameState*> statesList;
 public:
 	static CStatesManager& getInstance();
 	void changeState(const char* stateName);
@@ -30,6 +31,6 @@ public:
 	virtual void draw() = 0;
 	std::string getName(){return this->name;};
 protected:
-	std::string name;
+	string name;
 };
 #endif /* CSTATESMANAGER_H_ */

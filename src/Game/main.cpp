@@ -9,7 +9,7 @@
 using namespace std;
 int main(int argc, char* argv[])
 {
-	Game.init(800, 600, 32, SDL_SWSURFACE, SDL_INIT_VIDEO);
+	Game.init(800, 600, 32, SDL_HWSURFACE | SDL_DOUBLEBUF, SDL_INIT_VIDEO);
 	MenuState* menu = new MenuState();
 	InstructionsState* ins = new InstructionsState();
 	CreditsState* cre = new CreditsState();

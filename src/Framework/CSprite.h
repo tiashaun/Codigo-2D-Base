@@ -6,11 +6,12 @@ public:
 	CSprite(SDL_Surface* img, int posX = 0, int posY = 0);
 	~CSprite();
 	virtual void draw();
-	virtual void update(Uint32 dt) = 0;
-
+	int getX() {return posX;}
+	int getY() {return posY;}
+	int getW() {return width;}
+	int getH() {return height;}
 protected:
 	SDL_Surface* img;
-	SDL_Rect pos;
-
+	int posX, posY, width, height;
 };
 #endif /* SPRITE_H_ */

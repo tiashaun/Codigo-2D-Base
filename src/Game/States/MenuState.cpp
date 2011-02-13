@@ -84,7 +84,7 @@ void MenuState::init()
 {
 	this->mainMenu = AssetsManager.loadImage("menu.png");
 	this->cursor = AssetsManager.loadImage("seta.png");
-	this->fuleira = new CAnimatedSprite(AssetsManager.loadImage("borboleta.png"), 104, 115, 4);
+	this->fuleira = new CAnimatedSprite(AssetsManager.loadImage("teste.png"), 20, 20, 24);
 	this->currOption = 0;
 	this->cursorPos.x = 480;
 }
