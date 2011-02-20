@@ -40,7 +40,7 @@ void CAnimatedSprite::update( Uint32 dt )
 {
 	if ( this->elapsedTime > (1/this->fps) * 1000 )
 	{
-		if(this->currFrame != framesCount)
+		if(this->currFrame != framesCount - 1)
 		{
 			this->currFrame++;
 		}

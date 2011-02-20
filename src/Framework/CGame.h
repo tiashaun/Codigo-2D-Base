@@ -8,9 +8,8 @@
 class CGame {
 
 public:
-	//void setRunning(int running);
 	void run();
-	static void init(int resX, int resY, int bpp, unsigned int videoFlags, unsigned int initFlags);
+	static void init( int resX, int resY, int bpp, unsigned int videoFlags, unsigned int initFlags );
 	void quit();
 	static CGame& getInstance();
 	SDL_Surface* getScreen();

@@ -48,6 +48,7 @@ void CGame::init(int resX, int resY, int bpp, unsigned int videoFlags, unsigned 
 	if(!instance)
 	{
 		instance = new CGame(resX, resY, bpp, videoFlags, initFlags);
+
 	}
 }
 

@@ -12,10 +12,10 @@ private:
 	static CAssetsManager* instance;
 public:
 	static CAssetsManager& getInstance();
-	SDL_Surface* loadImage(const char *img);
-	SDL_Surface* loadWindowIcon(const char *img);
+	SDL_Surface* loadImage(const char* img);
 	SDL_Surface* loadImage(const char* img, SDL_Rect area);
-	void loadAnimation(const char* img, int frameX, int frameY);
+	SDL_Surface* loadImage(const char* img, SDL_Rect area, int borderX, int borderY, int intervalX, int intervalY);
+	SDL_Surface* loadWindowIcon(const char *img);
 };
 
 #endif /* CASSETSMANAGER_H_ */
